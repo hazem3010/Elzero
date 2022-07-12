@@ -6,6 +6,7 @@
 :root {
     --mainColor: #2196f3;
     --mainColorAlt: #1787e0;
+    --trns: 0.3s;
 }
 
 html {
@@ -54,3 +55,96 @@ ul {
 }
 
 /* Global rules */
+/* Header Start */
+header {
+    box-shadow: 0 0 10px #ddd;
+    width: 100%;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    flex-wrap: wrap;
+}
+
+@media (max-width:767px) {
+    header .container {
+        height: 100px;
+    }
+
+}
+
+header .container .logo {
+    color: var(--mainColor);
+    font-weight: bolder;
+    font-size: 28px;
+}
+
+@media (max-width:767px) {
+    header .container .logo {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+header .container>ul>li>a {
+    color: inherit;
+    cursor: inherit;
+}
+
+header .container>ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+@media (max-width:767px) {
+    header .container ul.nav {
+        margin: -5px auto;
+    }
+
+}
+
+header .container>ul li {
+    padding: 0 20px;
+    position: relative;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    overflow: hidden;
+    cursor: default;
+    transition: var(--trns);
+}
+
+@media (max-width:767px) {
+    header .container>ul>li {
+        padding: 10px;
+        font-size: 14px;
+        height: 40px;
+    }
+
+}
+
+header .container>ul li:before {
+    content: '';
+    width: 100%;
+    height: 4px;
+    background-color: var(--mainColor);
+    position: absolute;
+    top: 0;
+    left: -100%;
+    transition: inherit;
+}
+
+header .container>ul li:hover {
+    background-color: #fafafa;
+    color: var(--mainColor);
+}
+
+header .container>ul li:hover::before {
+    left: 0;
+}
+
+/* Header Start */
