@@ -152,7 +152,12 @@ header .container>ul li:hover::before {
     overflow: hidden;
     height: calc(100vh - 72px);
 }
-
+@media (max-width:767px) {
+    .landing{
+        height: calc(100vh - 100px);
+    }
+    
+}
 .landing::before {
     content: '';
     width: 100%;
@@ -171,16 +176,31 @@ header .container>ul li:hover::before {
     height: 100%;
     flex-wrap: wrap;
 }
+@media (max-width:1199px){
+    .landing .container{
+        justify-content: center;
+    }
+}
 
 .landing .container .text {
     max-width: 700px;
 }
-
+@media (max-width:1199px){
+    .landing .container .text{
+        text-align: center;
+    }
+}
 .landing .container .text h1 {
     margin: 0;
     text-transform: capitalize;
     font-size: 40px;
     letter-spacing: -2px;
+}
+@media (max-width:767px) {
+    .landing .container .text h1{
+        font-size: 30px;
+    }
+    
 }
 
 .landing .container .text p {
@@ -194,6 +214,16 @@ header .container>ul li:hover::before {
     animation: image 1.5s alternate infinite linear;
 }
 
+@keyframes image {
+    to {
+        transform: translateY(-35px);
+    }
+}
+@media (max-width:767px) {
+    .landing .container img{
+        display: none;
+    }    
+}
 .landing a i {
     position: absolute;
     bottom: 30px;
@@ -210,11 +240,6 @@ header .container>ul li:hover::before {
     color: var(--mainColorAlt);
 }
 
-@keyframes image {
-    to {
-        transform: translateY(-35px);
-    }
-}
 
 @keyframes down {
     25% {
