@@ -11,8 +11,6 @@
 
 html {
     font-family: 'Cairo', sans-serif;
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Work Sans', sans-serif;
     scroll-behavior: smooth;
 }
 
@@ -148,3 +146,84 @@ header .container>ul li:hover::before {
 }
 
 /* Header Start */
+/* Landing Start */
+.landing {
+    position: relative;
+    overflow: hidden;
+    height: calc(100vh - 72px);
+}
+
+.landing::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #ececec;
+    position: absolute;
+    z-index: -1;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+}
+
+.landing .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+.landing .container .text {
+    max-width: 700px;
+}
+
+.landing .container .text h1 {
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 40px;
+    letter-spacing: -2px;
+}
+
+.landing .container .text p {
+    color: #666;
+    font-size: 23px;
+    line-height: 1.7;
+}
+
+.landing .container img {
+    width: 400px;
+    animation: image 1.5s alternate infinite linear;
+}
+
+.landing a i {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--mainColor);
+    font-size: 40px;
+    font-weight: bold;
+    transition: var(--trns);
+    animation: down 0.75s alternate infinite linear;
+}
+
+.landing i:hover {
+    color: var(--mainColorAlt);
+}
+
+@keyframes image {
+    to {
+        transform: translateY(-35px);
+    }
+}
+
+@keyframes down {
+    25% {
+        transform: translateY(-15px) translateX(-50%);
+    }
+
+    50% {
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+/* Landing End */
