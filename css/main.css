@@ -112,7 +112,6 @@ header .container>ul li {
     align-items: center;
     display: flex;
     overflow: hidden;
-    cursor: default;
     transition: var(--trns);
 }
 
