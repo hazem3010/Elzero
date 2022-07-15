@@ -25,8 +25,8 @@ ul {
 }
 
 .container {
-    padding-left: 15px;
-    padding-right: 15px;
+    /* padding-left: 15px; */
+    /* padding-right: 15px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -65,6 +65,7 @@ header .container {
     align-items: center;
     height: 72px;
     flex-wrap: wrap;
+    position: relative;
 }
 
 @media (max-width:767px) {
@@ -89,7 +90,8 @@ header .container .logo {
 
 header .container>ul>li>a {
     color: inherit;
-    cursor: inherit;
+    width: 100%;
+    font-size: 18px;
 }
 
 header .container>ul {
@@ -105,7 +107,7 @@ header .container>ul {
 
 }
 
-header .container>ul li {
+header .container>ul>li {
     padding: 0 20px;
     position: relative;
     height: 100%;
@@ -124,7 +126,7 @@ header .container>ul li {
 
 }
 
-header .container>ul li:before {
+header .container>ul>li:before {
     content: '';
     width: 100%;
     height: 4px;
@@ -135,28 +137,30 @@ header .container>ul li:before {
     transition: inherit;
 }
 
-header .container>ul li:hover {
+header .container>ul>li:hover {
     background-color: #fafafa;
     color: var(--mainColor);
 }
 
-header .container>ul li:hover::before {
+header .container>ul>li:hover::before {
     left: 0;
 }
 
-/* Header Start */
+/* Header End */
 /* Landing Start */
 .landing {
     position: relative;
     overflow: hidden;
     height: calc(100vh - 72px);
 }
+
 @media (max-width:767px) {
-    .landing{
+    .landing {
         height: calc(100vh - 100px);
     }
-    
+
 }
+
 .landing::before {
     content: '';
     width: 100%;
@@ -175,8 +179,9 @@ header .container>ul li:hover::before {
     height: 100%;
     flex-wrap: wrap;
 }
-@media (max-width:1199px){
-    .landing .container{
+
+@media (max-width:1199px) {
+    .landing .container {
         justify-content: center;
     }
 }
@@ -184,22 +189,25 @@ header .container>ul li:hover::before {
 .landing .container .text {
     max-width: 700px;
 }
-@media (max-width:1199px){
-    .landing .container .text{
+
+@media (max-width:1199px) {
+    .landing .container .text {
         text-align: center;
     }
 }
+
 .landing .container .text h1 {
     margin: 0;
     text-transform: capitalize;
     font-size: 40px;
     letter-spacing: -2px;
 }
+
 @media (max-width:767px) {
-    .landing .container .text h1{
+    .landing .container .text h1 {
         font-size: 30px;
     }
-    
+
 }
 
 .landing .container .text p {
@@ -218,11 +226,13 @@ header .container>ul li:hover::before {
         transform: translateY(-35px);
     }
 }
+
 @media (max-width:767px) {
-    .landing .container img{
+    .landing .container img {
         display: none;
-    }    
+    }
 }
+
 .landing a i {
     position: absolute;
     bottom: 30px;
@@ -251,3 +261,72 @@ header .container>ul li:hover::before {
 }
 
 /* Landing End */
+/* Megamenu Start */
+header .container .megamenu {
+    position: absolute;
+    top: calc(100% + 50px);
+    opacity: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+    padding: 20px;
+    border-bottom: 3px solid var(--mainColor);
+    border-top: 1px solid #ececec;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0px 0px 15px 15px;
+    transition: var(--trns);
+    display: none;
+}
+header .container .megamenu:hover{
+    display: flex;
+    animation: megamenu 0.3s forwards;
+}
+header .container ul.nav li:hover+div{
+    display: flex;
+    animation: megamenu 0.3s forwards;
+}
+@keyframes megamenu {
+    100%{
+        display: flex;
+        opacity: 100%;
+        top: 100%;
+    }
+}
+header .container .megamenu ul li{
+    position: relative;
+    overflow: hidden;
+}
+header .container .megamenu ul li a{
+    display: block;
+    padding: 20px;
+    color: var(--mainColor);
+    font-size: 18px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+header .container .megamenu ul li i{
+    margin-right: 10px;
+}
+header .container .megamenu ul li:not(:last-child){
+    border-bottom: 1px solid #ececec;
+}
+header .container .megamenu ul li:before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ececec;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: var(--trns);
+}
+header .container .megamenu ul li:hover:before{
+    transform: translateX(0);
+} 
+/* Megamenu End*/
