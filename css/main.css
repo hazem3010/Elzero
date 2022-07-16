@@ -31,6 +31,10 @@ ul {
     margin-right: auto;
 }
 
+body>div {
+    padding: 60px 0;
+}
+
 /* Small */
 @media (min-width:768px) {
     .container {
@@ -173,11 +177,12 @@ header .container>ul>li:hover::before {
     z-index: -1;
     transform: skewY(-6deg);
     transform-origin: top left;
+    top: -40px;
 }
 
 .landing .container {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     height: 100%;
     flex-wrap: wrap;
@@ -286,33 +291,39 @@ header .container .megamenu {
     transition: var(--trns);
     display: none;
 }
+
 @media (max-width:767px) {
-    header .container .megamenu{
+    header .container .megamenu {
         flex-direction: column;
         align-items: flex-start;
         gap: 0;
     }
 }
-header .container .megamenu:hover{
+
+header .container .megamenu:hover {
     display: flex;
     animation: megamenu 0.3s forwards;
 }
-header .container ul.nav li:hover+div{
+
+header .container ul.nav li:hover+div {
     display: flex;
     animation: megamenu 0.3s forwards;
 }
+
 @keyframes megamenu {
-    100%{
+    100% {
         display: flex;
         opacity: 100%;
         top: 100%;
     }
 }
-header .container .megamenu ul li{
+
+header .container .megamenu ul li {
     position: relative;
     overflow: hidden;
 }
-header .container .megamenu ul li a{
+
+header .container .megamenu ul li a {
     display: block;
     padding: 20px;
     color: var(--mainColor);
@@ -320,21 +331,26 @@ header .container .megamenu ul li a{
     text-transform: capitalize;
     font-weight: bold;
 }
-header .container .megamenu ul li i{
+
+header .container .megamenu ul li i {
     margin-right: 10px;
 }
-header .container .megamenu ul li:not(:last-child){
+
+header .container .megamenu ul li:not(:last-child) {
     border-bottom: 1px solid #ececec;
 }
+
 @media (max-width:767px) {
-    header .container .megamenu ul li{
+    header .container .megamenu ul li {
         border-bottom: 1px solid #ececec;
     }
-    header .container .megamenu ul{
+
+    header .container .megamenu ul {
         width: 100%;
     }
 }
-header .container .megamenu ul li:before{
+
+header .container .megamenu ul li:before {
     content: '';
     position: absolute;
     width: 100%;
@@ -346,20 +362,100 @@ header .container .megamenu ul li:before{
     z-index: -1;
     transition: var(--trns);
 }
-header .container .megamenu ul li:hover:before{
+
+header .container .megamenu ul li:hover:before {
     transform: translateX(0);
-} 
-header .container .megamenu img{
+}
+
+header .container .megamenu img {
     height: 250px;
 }
+
 @media (max-width:991px) {
-    header .container .megamenu img{
+    header .container .megamenu img {
         display: none;
     }
 }
+
 @media (max-width:1199px) {
-    header .container .megamenu img{
+    header .container .megamenu img {
         height: 200px;
     }
 }
+
 /* Megamenu End*/
+/* Main tilte Start */
+h2.maintitle {
+    width: fit-content;
+    margin: 10px auto;
+    font-size: 40px;
+    border: 3px solid black;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    position: relative;
+    user-select: none;
+    transition: var(--trns);
+}
+
+h2.maintitle::before,
+h2.maintitle::after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--mainColor);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+h2.maintitle:hover {
+    color: white;
+    border-color: white;
+    transition-delay: var(--trns);
+}
+
+h2.maintitle::before {
+    left: -30px;
+}
+
+h2.maintitle:hover::before {
+    animation: left var(--trns) linear 1 normal forwards;
+}
+
+h2.maintitle:hover::after {
+    animation: right var(--trns) linear 1 normal forwards;
+}
+
+h2.maintitle::after {
+    right: -30px;
+}
+
+@keyframes left {
+    50% {
+        left: 0;
+    }
+
+    100% {
+        left: 0;
+        width: 51%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+@keyframes right {
+    50% {
+        right: 0;
+    }
+
+    100% {
+        right: 0;
+        width: 51%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+/* Main tilte End */
