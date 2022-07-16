@@ -193,6 +193,11 @@ header .container>ul>li:hover::before {
         justify-content: center;
     }
 }
+@media (max-width:767px) {
+    .landing .container {
+        align-items: center;
+    }
+}
 
 .landing .container .text {
     max-width: 700px;
@@ -395,6 +400,7 @@ h2.maintitle {
     position: relative;
     user-select: none;
     transition: var(--trns);
+    margin-bottom: 100px;
 }
 
 h2.maintitle::before,
@@ -459,3 +465,43 @@ h2.maintitle::after {
 }
 
 /* Main tilte End */
+/* Articles Start */
+.articles .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+.articles .container .box{
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px #0000001a;
+    transition: var(--trns);
+}
+.articles .container .box h3{
+    text-transform: capitalize;
+}
+.articles .container .box:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 2px 15px #00000033;
+
+}
+.articles .container .box img{
+    width: 100%;
+}
+.articles .container .box .content{
+    padding: 15px;
+}
+.articles .container .box .content p{
+    color: #777;
+}
+.articles .container .box .more{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    color: var(--mainColor);
+}
+.articles .container .box .more a{
+    color: var(--mainColor);
+    text-transform: capitalize;
+}
+/* Articles End */
