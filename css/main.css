@@ -25,8 +25,8 @@ ul {
 }
 
 .container {
-    /* padding-left: 15px; */
-    /* padding-right: 15px; */
+    padding-left: 15px;
+    padding-right: 15px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -479,6 +479,7 @@ h2.maintitle::after {
 }
 .articles .container .box h3{
     text-transform: capitalize;
+    margin: 0;
 }
 .articles .container .box:hover{
     transform: translateY(-15px);
@@ -499,9 +500,18 @@ h2.maintitle::after {
     justify-content: space-between;
     padding: 15px;
     color: var(--mainColor);
+    border-top: 1px solid #e6e6e7;
 }
 .articles .container .box .more a{
     color: var(--mainColor);
     text-transform: capitalize;
+}
+.articles .container .box:hover .more i{
+    animation: arrow calc(var(--trns) * 2) linear infinite normal;
+}
+@keyframes arrow {
+    100%{
+        transform: translateX(10px);
+    }
 }
 /* Articles End */
