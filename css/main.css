@@ -35,6 +35,10 @@ body>div {
     padding: 60px 0;
 }
 
+body>div:nth-child(even) {
+    background-color: #ececec;
+}
+
 /* Small */
 @media (min-width:768px) {
     .container {
@@ -159,6 +163,8 @@ header .container>ul>li:hover::before {
     position: relative;
     overflow: hidden;
     height: calc(100vh - 72px);
+    background-color: white !important;
+    z-index: 0;
 }
 
 @media (max-width:767px) {
@@ -174,10 +180,11 @@ header .container>ul>li:hover::before {
     height: 100%;
     background-color: #ececec;
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     transform: skewY(-6deg);
     transform-origin: top left;
     top: -40px;
+    z-index: -1;
 }
 
 .landing .container {
@@ -193,6 +200,7 @@ header .container>ul>li:hover::before {
         justify-content: center;
     }
 }
+
 @media (max-width:767px) {
     .landing .container {
         align-items: center;
@@ -401,6 +409,7 @@ h2.maintitle {
     user-select: none;
     transition: var(--trns);
     margin-bottom: 100px;
+    z-index: 1;
 }
 
 h2.maintitle::before,
@@ -466,52 +475,123 @@ h2.maintitle::after {
 
 /* Main tilte End */
 /* Articles Start */
-.articles .container{
+.articles .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 40px;
 }
-.articles .container .box{
+
+.articles .container .box {
     overflow: hidden;
     border-radius: 5px;
     box-shadow: 0 2px 15px #0000001a;
     transition: var(--trns);
 }
-.articles .container .box h3{
+
+.articles .container .box h3 {
     text-transform: capitalize;
     margin: 0;
 }
-.articles .container .box:hover{
+
+.articles .container .box:hover {
     transform: translateY(-15px);
     box-shadow: 0 2px 15px #00000033;
 
 }
-.articles .container .box img{
+
+.articles .container .box img {
     width: 100%;
 }
-.articles .container .box .content{
+
+.articles .container .box .content {
     padding: 15px;
 }
-.articles .container .box .content p{
+
+.articles .container .box .content p {
     color: #777;
 }
-.articles .container .box .more{
+
+.articles .container .box .more {
     display: flex;
     justify-content: space-between;
     padding: 15px;
     color: var(--mainColor);
     border-top: 1px solid #e6e6e7;
 }
-.articles .container .box .more a{
+
+.articles .container .box .more a {
     color: var(--mainColor);
     text-transform: capitalize;
 }
-.articles .container .box:hover .more i{
+
+.articles .container .box:hover .more i {
     animation: arrow calc(var(--trns) * 2) linear infinite normal;
 }
+
 @keyframes arrow {
-    100%{
+    100% {
         transform: translateX(10px);
     }
 }
+
 /* Articles End */
+/* Gallery Start */
+.spikes{    /*Spikes border top*/
+    --mask:
+            linear-gradient(#000 0 0) bottom/100% calc(100% - 30px) no-repeat,
+            conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg) top/60.00px 30px repeat-x;
+        -webkit-mask: var(--mask);
+        mask: var(--mask);
+}
+.gallery .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.gallery .container .box {
+    overflow: hidden;
+    border: 10px solid white;
+    background-color: white;
+    position: relative;
+}
+
+.gallery .container .box .image::before {
+    content: '';
+    width: 0;
+    height: 0;
+    position: absolute;
+    background-color: #ffffff33;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.gallery .container .box:hover .image::before {
+    animation: flash var(--trns);
+}
+
+@keyframes flash {
+
+    0%,
+    40% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+}
+
+.gallery .container .box .image img {
+    width: 100%;
+    transition: var(--trns);
+}
+
+.gallery .container .box:hover .image img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Gallery End */
