@@ -642,24 +642,31 @@ h2.maintitle::after {
     content: '';
     border-style: solid;
     border-color: transparent transparent white transparent;
-    border-width: 0px 0px 200px 500px;
+    border-width: 0px 0px 170px 500px;
     position: absolute;
     bottom: 0;
     right: 0;
+    transition: var(--trns);
+}
+
+.features .container .box:hover .img::after {
+    border-width: 0px 500px 170px 0px;
 }
 
 .features .container .box .img img {
     width: 100%;
     /* z-index: -1; */
 }
-.features .container .box h2{
+
+.features .container .box h2 {
     text-align: center;
     width: fit-content;
     margin: -10px auto 0;
     font-size: 40px;
     position: relative;
 }
-.features .container .box h2::before{
+
+.features .container .box h2::before {
     content: '';
     position: absolute;
     height: 5px;
@@ -669,21 +676,34 @@ h2.maintitle::after {
     left: 50%;
     transform: translate(-50%);
 }
-.features .container .box p{
+
+.features .container .box p {
     padding: 15px;
     text-align: center;
     color: var(--pcolor);
+    line-height: 2;
 }
-.features .container .box a{
+
+.features .container .box a {
     display: block;
     text-align: center;
     margin: 50px auto;
-    padding: 10px 20px;
+    padding: 10px 30px;
     border-radius: 5px;
     color: var(--theme);
     border: 3px solid var(--theme);
     width: fit-content;
     font-size: 25px;
     position: relative;
+    background: linear-gradient(to right, var(--theme) 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: var(--trns);
 }
+
+.features .container .box:hover a {
+    background-position: left bottom;
+    color: white;
+}
+
 /* Features End */
